@@ -9,7 +9,7 @@ export const NGX_LOGGER_INITIALIZER_PROVIDER: Provider = [
 
 export function LoggerInitializer(options: ILogOptions): Promise<void> {
 
-  const logPublisherService = inject(LogPublisherService); // Inject the service
+  const logPublisherService = inject(LogPublisherService)
   logPublisherService.setLogger({ loggerName: options.default_logger, loggerLocation: options.default_location, isActive: options.isActive })
 
   return new Promise<void>((resolve) => {

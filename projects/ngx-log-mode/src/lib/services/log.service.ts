@@ -12,6 +12,7 @@ export class LogService {
   static logLevel: LogLevel = LogLevel.Debug
   static logWithDate: boolean = true
   static logPublisher: LogPublisher[]
+  static isLogActivated: boolean = false
   
   private readonly _isActivated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   readonly isActivated$: Observable<boolean> = this._isActivated.asObservable()
@@ -40,7 +41,7 @@ export class LogService {
   }
 
   static logger(level: LogLevel, component: string, params: any[]): void {
-    if (level >= LogLevel.Off) return
+    if (level >= LogLevel.Off || !LogService.isLogActivated) return
     if (this.shouldLog(level)) {
       let entry: LogEntry = new LogEntry()
       entry.component = component
@@ -73,11 +74,11 @@ export class LogService {
     return response
   }
 
-  public toggleLogActivate() {
-    this._isActivated.next(!this._isActivated.value)
+  public isLogActivated(): boolean {
+    return LogService.isLogActivated
   }
 
-  // public loge(target: any, propertyKey: any, descriptor: any) {
-  //   LogService.log('LogService', 'loge')
-  // }
+  public toggleLogActivate() {
+    LogService.isLogActivated = !LogService.isLogActivated
+  }
 }
