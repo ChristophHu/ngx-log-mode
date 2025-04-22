@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { Observable, take } from 'rxjs';
 import { LogDecorator, LogModeComponent, LogService } from '../../../../ngx-log-mode/src/public-api';
 
 @Component({
@@ -18,29 +17,36 @@ import { LogDecorator, LogModeComponent, LogService } from '../../../../ngx-log-
 export class TemplateComponent {
   private _logService: LogService
 
-  // needed for custom toggle button
-  // form: FormGroup
-
   constructor(@Inject(LogService) _logService: LogService) {
     this._logService = _logService
-
-    // this.form = this._fb.group({
-    //   darkMode: [true]
-    // })
   }
 
-  @LogDecorator({ logType: 'info', input: false, output: false, timestamp: true })
   toggleLog() {
     this._logService.toggleLogActivate()
   }
-  isLogActivated(): Observable<boolean> {
-    LogService.log('TemplateComponent', 'LogIsActivated', this._logService.isActivated$.pipe(take(1)).subscribe())
-    return this._logService.isActivated$
+  isLogActivated(): boolean {
+    LogService.log('TemplateComponent', 'LogIsActivated', this._logService.isLogActivated())
+    return this._logService.isLogActivated()
   }
 
+  // @LogDecorator({ logType: 'info', input: true, output: true, timestamp: true })
   logThis(param: string): void {
     LogService.log('TemplateComponent', 'logThis()', ' param: ' + param)
   }
 
-  // isChecked : boolean = true
+  logInfo() {
+    LogService.info('TemplateComponent', 'logInfo()')
+  }
+  logDebug() {
+    LogService.debug('TemplateComponent', 'logDebug()')
+  }
+  logWarn() {
+    LogService.warn('TemplateComponent', 'logWarn()')
+  }
+  logError() {
+    LogService.error('TemplateComponent', 'logError()')
+  }
+  logFatal() {
+    LogService.fatal('TemplateComponent', 'logFatal()')
+  }
 }

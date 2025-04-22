@@ -3,7 +3,7 @@
 </div>
 <ng-container *ngIf="!content.hasChildNodes()">
   <label class="toggle relative inline-block m-0 p-0 border-0 align-middle opacity-100 cursor-pointer disabled:opacity-60 disabled:pointer-events-none">
-      <input type="checkbox" class="absolute hidden" [name]="'log-mode'" [checked]="(isLogActivated() | async) ? true : false" [disabled]="false" (click)="toggleLog()">
+      <input type="checkbox" class="absolute hidden" [name]="'log-mode'" [checked]="isLogActivated() ? true : false" [disabled]="false" (click)="toggleLog()">
       <div class="switch-core relative block w-12 h-[24px] m-0 items-center transition-colors duration-200 ease-in-out rounded-full">
           <div class="switch-button relative block h-5 w-5 top-[2px] left-[2px] rounded-full overflow-hidden transition-all duration-200 ease-in-out"></div>
       </div>

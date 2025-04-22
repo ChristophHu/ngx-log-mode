@@ -1,2 +1,8 @@
 <log-mode></log-mode>
-<button class="p-2 bg-accent rounded-lg cursor-pointer" (click)="logThis('param')">Log this!</button>
+
+<button class="p-2 ml-2 bg-gray-400 text-black rounded-lg cursor-pointer" (click)="logDebug()">Log Debug</button>
+<button class="p-2 ml-2 bg-gray-200 text-black rounded-lg cursor-pointer" (click)="logThis('param')">Log this</button>
+<button class="p-2 ml-2 bg-yellow-200 text-black rounded-lg cursor-pointer" (click)="logInfo()">Log Info</button>
+<button class="p-2 ml-2 bg-yellow-400 text-black rounded-lg cursor-pointer" (click)="logWarn()">Log Warn</button>
+<button class="p-2 ml-2 bg-red-400 text-black rounded-lg cursor-pointer" (click)="logError()">Log Error</button>
+<button class="p-2 ml-2 bg-red-500 text-black rounded-lg cursor-pointer" (click)="logFatal()">Log Fatal</button>

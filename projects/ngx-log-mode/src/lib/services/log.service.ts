@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { LogLevel } from '../models/log-level.enum';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { LogPublisherService } from './log-publisher.service';
 import { LogPublisher } from '../models/log-publisher';
 import { LogEntry } from '../models/log-entry';
@@ -9,13 +8,10 @@ import { LogEntry } from '../models/log-entry';
   providedIn: 'root'
 })
 export class LogService {
-  static logLevel: LogLevel = LogLevel.Debug
+  static logLevel: LogLevel = LogLevel.All
   static logWithDate: boolean = true
   static logPublisher: LogPublisher[]
   static isLogActivated: boolean = false
-  
-  private readonly _isActivated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-  readonly isActivated$: Observable<boolean> = this._isActivated.asObservable()
 
   constructor(private _logPublisherService: LogPublisherService) {
     LogService.logPublisher = this._logPublisherService.logPublishers

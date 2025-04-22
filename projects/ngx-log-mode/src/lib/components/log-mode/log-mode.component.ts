@@ -1,12 +1,10 @@
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'log-mode',
   imports: [
-    AsyncPipe,
     CommonModule
   ],
   templateUrl: './log-mode.component.html',
@@ -18,7 +16,7 @@ export class LogModeComponent {
   toggleLog() {
     this._logService.toggleLogActivate()
   }
-  isLogActivated(): Observable<boolean> {
-    return this._logService.isActivated$
+  isLogActivated(): boolean {
+    return this._logService.isLogActivated()
   }
 }

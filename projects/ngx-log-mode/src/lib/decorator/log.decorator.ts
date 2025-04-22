@@ -16,6 +16,8 @@ export function LogDecorator(params?: LogParam): (target: any, propertyKey: stri
         ...params
     }
 
+    console.log('LogDecorator', params)
+
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         
         // const injector = target.constructor.injector as Injector

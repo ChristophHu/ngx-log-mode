@@ -6,9 +6,10 @@ import { LogLevel } from "./log-level.enum"
 export class LogConsole extends LogPublisher {
     log(entry: LogEntry): Observable<boolean> {
         switch (entry.level) {
-            case LogLevel.Debug:
-                console.debug(entry.buildLogString())
-                break
+            
+            // case LogLevel.Debug:
+            //     console.debug(entry.buildLogString())
+            //     break
             case LogLevel.Warn:
                 console.warn(entry.buildLogString())
                 break
