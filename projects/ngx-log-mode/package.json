@@ -1,12 +1,36 @@
 {
-  "name": "ngx-log-mode",
-  "version": "0.0.1",
+  "name": "@christophhu/ngx-log-mode",
+  "version": "19.2.0",
+  "description": "Angular log mode toggle library for toggling the log of console.log-messages, logs in the localstorage or in a WebAPI.",
+  "license": "MIT",
+  "author": {
+    "name": "Christoph Huschenhoefer",
+    "email": "christoph@nxt.codes"
+  },
+  "keywords": [
+    "angular",
+    "log",
+    "console",
+    "localstorage",
+    "WebAPI"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophhu/ngx-log-mode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christophhu/ngx-log-mode/issues"
+  },
+  "homepage": "https://github.com/christophhu/ngx-deblogug-mode#readme",
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  },
-  "sideEffects": false
+  }
 }
