@@ -1,0 +1,15 @@
+.toggle
+    input[type="checkbox"]
+
+        &:checked
+            + .switch-core
+                background-color: var(--accent)
+
+                .switch-button
+                    transform: translateX(1.5rem)
+
+    .switch-core
+        background-color: var(--label)
+
+        .switch-button
+            background-color: var(--light)
