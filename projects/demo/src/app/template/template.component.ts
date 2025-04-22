@@ -25,7 +25,6 @@ export class TemplateComponent {
     this._logService.toggleLogActivate()
   }
   isLogActivated(): boolean {
-    LogService.log('TemplateComponent', 'LogIsActivated', this._logService.isLogActivated())
     return this._logService.isLogActivated()
   }
 

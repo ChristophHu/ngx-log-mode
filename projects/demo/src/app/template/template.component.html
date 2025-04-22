@@ -1,8 +1,26 @@
-<log-mode></log-mode>
+<h2 class="text-2xl leading-8">Default Log Toggle</h2>
+Open Your browser console to see the logs. You can open it by pressing F12 or right-clicking on the page and selecting "Inspect" or "Inspect Element".
 
-<button class="p-2 ml-2 bg-gray-400 text-black rounded-lg cursor-pointer" (click)="logDebug()">Log Debug</button>
-<button class="p-2 ml-2 bg-gray-200 text-black rounded-lg cursor-pointer" (click)="logThis('param')">Log this</button>
-<button class="p-2 ml-2 bg-yellow-200 text-black rounded-lg cursor-pointer" (click)="logInfo()">Log Info</button>
-<button class="p-2 ml-2 bg-yellow-400 text-black rounded-lg cursor-pointer" (click)="logWarn()">Log Warn</button>
-<button class="p-2 ml-2 bg-red-400 text-black rounded-lg cursor-pointer" (click)="logError()">Log Error</button>
-<button class="p-2 ml-2 bg-red-500 text-black rounded-lg cursor-pointer" (click)="logFatal()">Log Fatal</button>
+<div class="flex flex-wrap mt-4">
+    <button class="p-2 m-1 bg-gray-400 text-black rounded-lg cursor-pointer" (click)="logDebug()">Log Debug</button>
+    <button class="p-2 m-1 bg-gray-200 text-black rounded-lg cursor-pointer" (click)="logThis('param')">Log this</button>
+    <button class="p-2 m-1 bg-yellow-200 text-black rounded-lg cursor-pointer" (click)="logInfo()">Log Info</button>
+    <button class="p-2 m-1 bg-yellow-400 text-black rounded-lg cursor-pointer" (click)="logWarn()">Log Warn</button>
+    <button class="p-2 m-1 bg-red-400 text-black rounded-lg cursor-pointer" (click)="logError()">Log Error</button>
+    <button class="p-2 m-1 bg-red-500 text-black rounded-lg cursor-pointer" (click)="logFatal()">Log Fatal</button>
+</div>
+
+
+<h2 class="mt-4 text-2xl leading-8">Default Log Toggle</h2>
+<div class="flex mt-2 justify-between items-center text-sm text-dark">
+    <span>Log</span>
+    <log-mode></log-mode>
+</div>
+
+<h2 class="mt-4 text-2xl leading-8">Custom Log Toggle</h2>
+<div class="flex mt-2 justify-between items-center text-sm text-dark">
+    <span>Log</span>
+    <log-mode>
+        <input type="checkbox" name="log" id="log" (change)="toggleLog()" [checked]="isLogActivated()" class="cursor-pointer">
+    </log-mode>
+</div>

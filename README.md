@@ -31,7 +31,7 @@ npm i @christophhu/ngx-log-mode
 ### With custom toggle
 ```html
 <log-mode>
-  <input type="checkbox" class="toggle" id="toggle" (change)="toggleLog()"/>
+  <input type="checkbox" name="log" id="log" (change)="toggleLog()" [checked]="isLogActivated()" class="cursor-pointer">
 </log-mode>
 ```
 
@@ -60,13 +60,19 @@ export class TestComponent {
   toggleLog() {
     this._logService.toggleLogActivate()
   }
-  isLogActivated(): Observable<boolean> {
-    LogService.log('TestComponent', 'LogIsActivated', this._logService.isActivated$.pipe(take(1)).subscribe())
-    return this._logService.isActivated$
+  isLogActivated(): boolean {
+    return this._logService.isLogActivated()
   }
 
   logThis(param: string): void {
-    LogService.log('TestComponent', 'logThis()', ' param: ' + param)
+    LogService.log('TemplateComponent', 'logThis()', ' param: ' + param)
+  }
+  logThis() {
+    LogService.debug('TemplateComponent', 'logDebug()')
+    LogService.info('TemplateComponent', 'logInfo()')
+    LogService.warn('TemplateComponent', 'logWarn()')
+    LogService.error('TemplateComponent', 'logError()')
+    LogService.fatal('TemplateComponent', 'logFatal()')
   }
 }
 ```
